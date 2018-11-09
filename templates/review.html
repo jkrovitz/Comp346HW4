@@ -1,0 +1,75 @@
+<!-- Jeremy Krovitz -->
+<!-- This is the page where a single review can be viewed.-->
+
+{% extends "layout.html" %}
+{% block content %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <div>
+        <a class="bluebtn btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_review', id=review.id) }}">Update</a>
+        <button type="button" class="greenbtn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+      </div>
+    </div>
+    <p class="article-title"> Title: {{ title }}</p>
+    <p class="article-content"> Text: {{ text }}</p>
+    <p>
+      Rate movie between 1 and 5:
+      {% if review.rating==5 %}
+      <p class="fa fa-star starSize checked"></p>
+      <p class="fa fa-star starSize checked"></p>
+      <p class="fa fa-star starSize checked"></p>
+      <p class="fa fa-star starSize checked"></p>
+      <p class="fa fa-star starSize checked"></p>
+      {% endif %}
+      {% if review.rating==4 %}
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize"></span>
+      {% endif %}
+      {% if review.rating==3 %}
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize"></span>
+      <span class="fa fa-star starSize"></span>
+      {% endif %}
+      {% if review.rating==2 %}
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize"></span>
+      <span class="fa fa-star starSize"></span>
+      <span class="fa fa-star starSize"></span>
+      {% endif %}
+      {% if review.rating==1 %}
+      <span class="fa fa-star starSize checked"></span>
+      <span class="fa fa-star starSize"></span>
+      <span class="fa fa-star starSize"></span>
+      <span class="fa fa-star starSize"></span>
+      <span class="fa fa-star starSize"></span>
+      {% endif %}
+    </p>
+    <a class="btn btn-outline-primary" href="{{url_for('home')}}">Return to the home page</a>
+  </div>
+</article>
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete Review?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <form action="{{ url_for('delete_review', id=review.id) }}" method="POST">
+          <input class="btn btn-danger" type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

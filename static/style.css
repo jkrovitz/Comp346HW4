@@ -1,0 +1,253 @@
+/* Jeremy Krovitz */
+/*My stylesheet */
+
+body{
+  background-color: #ffffff;
+}
+
+label{
+  color: black;
+}
+
+.checked {
+    color: blue;
+}
+
+.titleOfWebApp{
+  text-align: center;
+}
+
+.newReviewClass{
+  margin-top: 20px;
+  text-align: center;
+  background-color: white;
+  color: blue;
+  text-decoration: none;
+  border: solid blue 2px;
+  margin-bottom: 20px;
+}
+
+.newReviewClass:hover{
+  background-color: blue;
+  color: white;
+  text-decoration: none; 
+}
+
+@media only screen and (max-width: 600px) {
+  .movieTitle{
+    width: 100px;
+  }
+
+  td, th {
+      border: 1px solid blue;
+      text-align: left;
+      padding: 2px;
+  }
+
+  .starRating{
+    width: 200px;
+  }
+
+.starSize{
+  font-size: 12px;
+}
+  .editReview{
+    width: 12.5px;
+  }
+
+  .deleteReview{
+    width: 12.5px;
+  }
+
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 300px;
+  }
+
+  /* Idle State of the stars */
+  .starRating ul > li.star > i.fa {
+    font-size:1.5em; /* Change the size of the stars */
+    color:#ccc; /* Color on idle state */
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 550px;
+  }
+
+  td, th {
+      border: 1px solid blue;
+      text-align: left;
+      padding: 10px;
+  }
+
+.movieTitle{
+  width: 200px;
+}
+
+.starRating{
+  width: 300px;
+}
+
+.starSize{
+  font-size: 20px;
+}
+
+.editReview{
+  width: 25px;
+}
+
+.deleteReview{
+  width: 25px;
+}
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:nth-child(odd){
+  background-color: #ffffff;
+}
+
+.returnHomeButton{
+  padding: 20px;
+  background-color: green;
+}
+
+
+* {
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+*:before, *:after {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.clearfix {
+  clear:both;
+}
+
+.text-center {text-align:center;}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
+
+/* pre {
+display: block;
+padding: 9.5px;
+margin: 0 0 10px;
+font-size: 13px;
+line-height: 1.42857143;
+color: #333;
+word-break: break-all;
+word-wrap: break-word;
+background-color: #F5F5F5;
+border: 1px solid #CCC;
+border-radius: 4px;
+}
+
+.header {
+  padding:20px 0;
+  position:relative;
+  margin-bottom:10px;
+
+}
+
+.header:after {
+  content:"";
+  display:block;
+  height:1px;
+  background:#eee;
+  position:absolute;
+  left:30%; right:30%;
+}
+
+.header h2 {
+  font-size:3em;
+  font-weight:300;
+  margin-bottom:0.2em;
+}
+
+.header p {
+  font-size:14px;
+} */
+
+
+
+#a-footer {
+  margin: 20px 0;
+}
+
+.success-box {
+  margin:50px 0;
+  padding:10px 10px;
+  border:1px solid #eee;
+  background:#f9f9f9;
+}
+
+.success-box img {
+  margin-right:10px;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.success-box > div {
+  vertical-align:top;
+  display:inline-block;
+  color:#888;
+}
+
+h2{
+  color: blue;
+}
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+  list-style-type:none;
+  padding:0;
+
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+.rating-stars ul > li.star {
+  display:inline-block;
+
+}
+
+
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
+}
+.marginTopClass{
+  margin-top: 20px;
+}
+
+.newPostClass{
+  margin-top: 50px;
+  margin-bottom: 20px;
+  /* width: 50%; */
+  text-align: center;
+  /* margin-left: 25%;
+  margin-right: 25%; */
+}

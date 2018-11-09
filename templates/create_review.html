@@ -1,0 +1,61 @@
+<!-- Jeremy Krovitz -->
+<!-- Creates the layout of the HTML form used for both creating and editing the review. -->
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">{{ legend }}</legend>
+      <div class="form-group">
+        {{ form.title.label(class="form-control-label") }}
+        {% if form.title.errors %}
+        {{ form.title(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.title.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.title(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.text.label(class="form-control-label") }}
+        {% if form.text.errors %}
+        {{ form.text(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.text.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.text(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.rating.label(class="form-control-label") }}
+        {% if form.rating.errors %}
+        {{ form.rating(class="form-control form-control-lg is-invalid") }}
+        <input id="input-id" type="text" class="rating" data-size="lg" >
+        <script>$("#input-id").rating();
+$("#input-id").rating({'size':'lg'});</script>
+        <div class="invalid-feedback">
+          {% for error in form.rating.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.rating(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+      </div>
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+      <a class="btn btn-outline-primary" href="{{url_for('home')}}">Return to the home page</a>
+    </div>
+  </form>
+</div>
+{% endblock content %}
