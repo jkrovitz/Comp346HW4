@@ -1,9 +1,10 @@
-#Jeremy Krovitz
+"""
+Jeremy Krovitz
 
-#This file creates routes for the home page where all the reviews are listed, the
-#page for creating a movie review, editing a movie review, viewing a single
-#movie review, ansd deleting a movie review.
-#-----------------------------
+This file creates routes for the home page where all reviews are listed. It also
+creates routes for the pages where a movie review is created, edited, viewed, and
+deleted.
+"""
 
 from database import Database, reviewFactory
 from flask import Flask, render_template, flash, request, url_for, redirect
@@ -30,10 +31,10 @@ def home():
     reviews = db.get()
     return render_template('home.html', reviews=reviews)
 
-#A route is defined to create a review. The function
-# creates a new review and if the form is successfully
-# validated on submit, the user is redirected to the
-#home page.
+""" A route is defined to create a review. The function
+creates a new review and if the form is successfully
+validated on submit, the user is redirected to the
+home page. """
 @app.route('/review/new', methods=['GET', 'POST'])
 def new_review():
     form = ReviewForm()
@@ -54,8 +55,8 @@ def get_review_id(id):
     review = db.get(id)
     return render_template('review.html', title=review.title, text=review.text, rating=review.rating, review=review)
 
-#This function allows the user to view the movie's details and allows
-# the user to choose to update a particular review.
+""" This function allows the user to view the movie's details and allows
+the user to choose to update a particular review."""
 @app.route('/review/<int:id>/update', methods=['GET', 'POST'])
 def update_review(id):
     review = db.get(id)
@@ -69,10 +70,10 @@ def update_review(id):
         return redirect(url_for('home', title=review.title, text=review.text, rating=review.rating, id=review.id))
     return render_template('create_review.html', title='Update Review', form=form, legend='Update Review')
 
-#This function allows the user to delete their review
-#by getting the review's id. The user is redirected
-#to the home page listing all of the reviews upon
-#deletion of a review with a specific id.
+""" This function allows the user to delete their review
+by getting the review's id. The user is redirected
+to the home page listing all of the reviews upon
+deletion of a review with a specific id."""
 @app.route('/delete/<int:id>', methods=['GET', 'POST'])
 def delete_review(id):
     db.delete(id)
